@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: profile_skills
+#
+#  id         :integer          not null, primary key
+#  profile_id :integer
+#  skill_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class ProfileSkill < ApplicationRecord
   belongs_to :profile
   belongs_to :skill
