@@ -24,7 +24,7 @@ class ProfileTest < ActiveSupport::TestCase
   end
 
   test 'プロフィールはユーザーの参照があると保存できる' do
-    profile = Profile.new
+    profile = Profile.new(name: "profile_test")
     profile.user = @user
     assert profile.valid?
   end

@@ -15,7 +15,7 @@ class ProfileSkillTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(:email => "skill@name.com", :password => 'password', :password_confirmation => 'password')
-    @profile = Profile.new
+    @profile = Profile.new(name: "skill_test")
     @profile.user = @user
   end
 
@@ -23,7 +23,7 @@ class ProfileSkillTest < ActiveSupport::TestCase
     rails = Skill.create(name: "rails")
     git = Skill.create(name: "git")
 
-    rails.profiles << @profile
+    @profile.skills << rails
     assert_equal 1, @profile.skills.size
 
     @profile.skills << git

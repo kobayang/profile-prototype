@@ -26,4 +26,27 @@ class SkillTest < ActiveSupport::TestCase
 
     assert_nil ProfileSkill.find_by(skill_id: skill.id)
   end
+
+  test 'スキル名が存在すること' do
+    invalid = Skill.new
+    assert_not invalid.valid?
+
+    ok = Skill.new(name: "hoge")
+    assert ok.valid?
+  end
+
+  test 'スキル名は英数字のみである' do
+    invalids = ["[hoge]", "has space"]
+
+    invalids.each do |invalid|
+      assert_not Skill.new(name: invalid).valid?
+    end
+
+    corrects = ["ok", "123", "OK"]
+
+    corrects.each do |correct|
+      assert Skill.new(name: correct).valid?
+    end
+  end
+
 end
