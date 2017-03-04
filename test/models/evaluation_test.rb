@@ -12,21 +12,21 @@ class EvaluationTest < ActiveSupport::TestCase
   end
 
   test 'ユーザーはスキルを評価することができる' do
-    other = User.new(:email => "other@name.com", :password => 'password', :password_confirmation => 'password')
+    other = User.new(:email => "other1@name.com", :password => 'password', :password_confirmation => 'password')
 
     @profile.skills << @rails
     @profile.skills << @git
 
-    my_first_skill = @profile.profile_skills.first
-    my_first_skill.evaluators << other
+    my_skill = @profile.profile_skills.first
+    my_skill.evaluators << other
 
-    assert_equal 1, my_first_skill.evaluators.size
+    assert_equal 1, my_skill.evaluators.size
   end
 
   test '同じ人が同じスキルを評価することはできない' do
-    other = User.create(:email => "other@name.com", :password => 'password', :password_confirmation => 'password')
-    profile = other.profile = Profile.create(name: "Other")
-    skill = Skill.create(name: "skill")
+    other = User.create(:email => "other2@name.com", :password => 'password', :password_confirmation => 'password')
+    profile = other.profile = Profile.create(name: "other2")
+    skill = Skill.create(name: "MySkill")
 
     profile.skills << skill
 
