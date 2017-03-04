@@ -8,6 +8,7 @@ end
 
 gem 'slim-rails'
 gem 'devise'
+gem 'annotate'
 
 # css frameworkにはsemantic-uiを用いる
 gem 'semantic-ui-sass'
