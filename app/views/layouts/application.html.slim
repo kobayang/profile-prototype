@@ -7,4 +7,19 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    - if notice
+      .ui.message
+        i.close.icon
+        = notice
+    - elsif alert
+      .ui.warning.message
+        i.close.icon
+        = alert
+
     = yield
+
+    coffee:
+      $(".message .close").on "click", () ->
+        $(this)
+          .closest ".message"
+          .fadeOut "normal"
