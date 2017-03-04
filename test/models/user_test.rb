@@ -6,6 +6,10 @@ class UserTest < ActiveSupport::TestCase
     @user = User.new(:email => "user@name.com", :password => 'password', :password_confirmation => 'password')
   end
 
+  test 'Fixtureのユーザーが取れていることの確認' do
+    assert_not_nil users(:me)
+  end
+
   test 'ユーザーが存在すること' do
     assert_not_nil User.new
   end
