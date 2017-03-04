@@ -1,5 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 #
-# my_profile:
-#   name: "Kobayashi Naoki"
-#   user: me
+my_profile:
+  name: "Kobayashi Naoki"
+  user: me

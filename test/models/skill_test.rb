@@ -6,4 +6,14 @@ class SkillTest < ActiveSupport::TestCase
     rails = Skill.new(name: "rails")
     assert_not_nil rails
   end
+
+  test 'スキルを削除したとき同時にスキルが持つスキルも削除される' do
+    profile = profiles(:my_profile)
+
+    skill = Skill.create(name: "gohan")
+    skill.profiles << profile
+    skill.destroy
+
+    assert_nil ProfileSkill.find_by(skill_id: skill.id)
+  end
 end

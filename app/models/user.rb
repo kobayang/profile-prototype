@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  has_many :evaluations, foreign_key: "evaluator_id"
+  has_many :evaluations, foreign_key: "evaluator_id", dependent: :delete_all
   has_many :eval_skills, through: :evaluations, source: :evaluated
 end

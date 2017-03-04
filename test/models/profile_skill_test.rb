@@ -18,4 +18,19 @@ class ProfileSkillTest < ActiveSupport::TestCase
     @profile.skills << git
     assert_equal 2, @profile.skills.size
   end
+
+  test 'プロフィールスキルを削除した時、その評価も削除される' do
+    profile = profiles(:my_profile)
+    skill = skills(:rails)
+    other = users(:test_user)
+
+    profile.skills << skill
+    my_skill = profile.profile_skills.first
+
+    my_skill.evaluators << other
+    my_skill.destroy
+
+    assert_nil Evaluation.find_by(evaluated_id: my_skill.id)
+  end
+
 end

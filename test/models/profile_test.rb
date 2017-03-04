@@ -17,4 +17,19 @@ class ProfileTest < ActiveSupport::TestCase
     assert profile.valid?
   end
 
+  test 'プロフィールを削除したとき同時にプロフィールが持つスキルも削除される' do
+    user = User.create(email: "p3@test.com", password: "password", password_confirmation: "password")
+    profile = user.profile = Profile.create(name: "ps2test")
+
+    ohagi = Skill.create(name: "ohagi")
+    mochi = Skill.create(name: "mochi")
+
+    profile.skills << [ohagi, mochi]
+
+    user.destroy
+    # => profileもdestoyされるため、ProfileSkillも削除される
+
+    assert_nil ProfileSkill.find_by(profile_id: profile.id)
+  end
+
 end
