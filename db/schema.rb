@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303123854) do
+ActiveRecord::Schema.define(version: 20170304080905) do
+
+  create_table "evaluations", force: :cascade do |t|
+    t.integer  "evaluated"
+    t.integer  "evaluator"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluated", "evaluator"], name: "index_evaluations_on_evaluated_and_evaluator", unique: true
+    t.index ["evaluated"], name: "index_evaluations_on_evaluated"
+    t.index ["evaluator"], name: "index_evaluations_on_evaluator"
+  end
+
+  create_table "profile_skills", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id", "skill_id"], name: "index_profile_skills_on_profile_id_and_skill_id", unique: true
+    t.index ["profile_id"], name: "index_profile_skills_on_profile_id"
+    t.index ["skill_id"], name: "index_profile_skills_on_skill_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.text     "introduction"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

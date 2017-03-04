@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'ユーザーが存在すること' do
+    user = users(:me)
+    assert_not_nil(user)
+  end
+
 end
