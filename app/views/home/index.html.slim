@@ -1,2 +1,25 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+/! Page Contents
+.pusher
+  .ui.vertical.masthead.center.aligned.segment
+    .ui.container
+      .ui.large.secondary.pointing.menu
+        a.active.item Home
+        .right.item
+          - if user_signed_in?
+            = current_user.email
+            = link_to "Sign out", destroy_user_session_path, method: :delete, class: "a ui item"
+          - else
+            = link_to "Log in", new_user_session_path, class: "a ui black basic button"
+            = link_to "Sign up", new_user_registration_path, class: "a ui black basic button"
+    .ui.text.container
+      h1.ui.header
+        | Demo-Profile-Page
+      h2.ui
+        | ナイスなプロフィールを書きましょう！
+    .ui.container
+      .ui.huge.secondary.inverted.orange.entry.button
+        | Get Started
+        i.right.arrow.icon
+  .ui.inverted.vertical.center.aligned.footer.segment
+    .ui.text.container
+      h4.ui.inverted.header Footerは飾り。
