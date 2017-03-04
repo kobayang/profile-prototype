@@ -13,13 +13,13 @@
 ActiveRecord::Schema.define(version: 20170304080905) do
 
   create_table "evaluations", force: :cascade do |t|
-    t.integer  "evaluated"
-    t.integer  "evaluator"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["evaluated", "evaluator"], name: "index_evaluations_on_evaluated_and_evaluator", unique: true
-    t.index ["evaluated"], name: "index_evaluations_on_evaluated"
-    t.index ["evaluator"], name: "index_evaluations_on_evaluator"
+    t.integer  "evaluated_id"
+    t.integer  "evaluator_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["evaluated_id", "evaluator_id"], name: "index_evaluations_on_evaluated_id_and_evaluator_id", unique: true
+    t.index ["evaluated_id"], name: "index_evaluations_on_evaluated_id"
+    t.index ["evaluator_id"], name: "index_evaluations_on_evaluator_id"
   end
 
   create_table "profile_skills", force: :cascade do |t|
