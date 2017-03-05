@@ -11,5 +11,5 @@
 
 class Evaluation < ApplicationRecord
   belongs_to :evaluator, class_name: "User"
-  belongs_to :evaluated, class_name: "ProfileSkill"
+  belongs_to :evaluated, class_name: "ProfileSkill", counter_cache: "evaluations_count"
 end

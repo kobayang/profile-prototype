@@ -6,8 +6,7 @@ class ProfilesController < ApplicationController
     @profile = @user.profile
     @has_user_profile = @profile.present?
 
-    @skills = @profile.skills
-    @skill_relations = @profile.profile_skills
+    @skill_relations = @profile.profile_skills.eager_load(:evaluators, :skill).order("evaluations_count desc")
   end
 
   def edit

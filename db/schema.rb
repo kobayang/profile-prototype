@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304080905) do
+ActiveRecord::Schema.define(version: 20170305150533) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer  "evaluated_id"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20170304080905) do
   create_table "profile_skills", force: :cascade do |t|
     t.integer  "profile_id"
     t.integer  "skill_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "evaluations_count", default: 0
     t.index ["profile_id", "skill_id"], name: "index_profile_skills_on_profile_id_and_skill_id", unique: true
     t.index ["profile_id"], name: "index_profile_skills_on_profile_id"
     t.index ["skill_id"], name: "index_profile_skills_on_skill_id"
