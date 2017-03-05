@@ -3,4 +3,9 @@
     = f.label :name, "Name"
     = f.text_field :name, placeholder: "Your name"
 
+  .field
+    label Skills
+    = f.fields_for :skills do |sf|
+      = sf.text_field :name, placeholder: "Your skill"
+
   = f.submit "プロフィールを更新", class: "ui button"

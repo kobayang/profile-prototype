@@ -15,4 +15,6 @@ class Profile < ApplicationRecord
 
   has_many :profile_skills, dependent: :destroy
   has_many :skills, through: :profile_skills, source: 'skill'
+
+  accepts_nested_attributes_for :skills
 end

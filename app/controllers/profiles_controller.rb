@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
     if @profile.nil?
       @profile = @user.profile = Profile.new
     end
+    @profile.skills.build
   end
 
   def update
@@ -27,7 +28,13 @@ class ProfilesController < ApplicationController
   private
 
     def profile_params
-      params.require(:profile).permit(:name)
+      params.require(:profile).permit(
+        :name,
+        skills_attributes: [
+          :id,
+          :name
+        ]
+      )
     end
 
     def correct_user

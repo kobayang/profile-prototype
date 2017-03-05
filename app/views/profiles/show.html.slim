@@ -8,9 +8,9 @@
     | ここに自己紹介を書く予定です。
   .ui.attached.header Skills
   .ui.attached.segment
-    p hoge
-    p hoge
-    p hoge
+    - @user.profile.skills.each do |skill|
+      p
+      = skill.name
 
 - else
 
