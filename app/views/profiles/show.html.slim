@@ -1,7 +1,16 @@
 - if @has_user_profile
 
-  h1.ui.dividing.header
-    = @user.profile.name
+  .ui.top.attached.header Profile
+  .ui.attached.segment
+    h3.ui.dividing.header
+      = @user.profile.name
+    p
+    | ここに自己紹介を書く予定です。
+  .ui.attached.header Skills
+  .ui.attached.segment
+    p hoge
+    p hoge
+    p hoge
 
 - else
 
