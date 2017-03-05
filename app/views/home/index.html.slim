@@ -6,6 +6,9 @@
     h2.ui
       | ナイスなプロフィールを書きましょう！
   .ui.container
-    .ui.huge.secondary.inverted.orange.entry.button
-      | Get Started
-      i.right.arrow.icon
+    - if user_signed_in?
+      = link_to "Get Started", edit_user_profile_path(current_user),
+        class: "ui huge secondary inverted orange entry button"
+    - else
+      = link_to "Login or Sign up", user_session_path,
+        class: "ui huge secondary inverted orange entry button"

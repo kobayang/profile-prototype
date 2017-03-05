@@ -17,4 +17,5 @@ class Skill < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   # nameは英数字のみ
   validates :name, format: { with: /\A[a-zA-Z0-9]+\z/ }
+
 end

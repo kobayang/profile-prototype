@@ -1,9 +1,15 @@
 .pusher {
+
+  .ui.debug.segment {
+    margin-top: 2em;
+  }
+
   .main.section {
     min-height: 700px;
 
     .main.container {
       margin-top: 2em;
+      margin-bottom: 2em;
     }
   }
 

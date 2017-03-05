@@ -13,7 +13,7 @@ gem 'annotate'
 # css frameworkにはsemantic-uiを用いる
 gem 'semantic-ui-sass'
 
-group :development, :test do
+group :test do
   gem 'rails-controller-testing'
 end
 

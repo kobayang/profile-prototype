@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   def edit
     @user = current_user
     @profile = @user.profile
+    @skill = Skill.new
     if @profile.nil?
       @profile = @user.profile = Profile.new
     end
@@ -27,7 +28,13 @@ class ProfilesController < ApplicationController
   private
 
     def profile_params
-      params.require(:profile).permit(:name)
+      params.require(:profile).permit(
+        :name,
+        skills_attributes: [
+          :id,
+          :name
+        ]
+      )
     end
 
     def correct_user
@@ -37,9 +44,9 @@ class ProfilesController < ApplicationController
 
     def check_and_redirect exec
       if exec
-        redirect_to user_profile_path(@user), notice: 'save user profile success'
+        redirect_to edit_user_profile_path(@user), notice: 'save user profile success'
       else
-        redirect_to user_profile_path(@user), alert: 'save user profile failed'
+        redirect_to edit_user_profile_path(@user), alert: 'save user profile failed'
       end
     end
 

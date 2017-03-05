@@ -1,2 +1,25 @@
-h1 profile#show
-p profile controller
+- if @has_user_profile
+
+  .ui.top.attached.header Profile
+  .ui.attached.segment
+    h3.ui.dividing.header
+      = @user.profile.name
+    p
+    | ここに自己紹介を書く予定です。
+  .ui.attached.header Skills
+  .ui.attached.segment
+    - @user.profile.skills.each do |skill|
+      p
+        = skill.name
+    - if @user != current_user
+      = link_to "スキルを推薦する",  new_user_profile_skill_path(@user, @profile), class: "ui green basic button"
+  - if @user == current_user
+    .ui.attached.header Edit
+    .ui.attached.segment
+      = link_to "Profileを編集する", edit_user_profile_path(@user), class: "ui button"
+
+
+- else
+
+  h1.ui.dividing.header
+    | ユーザープロフィールが存在しません。
