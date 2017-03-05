@@ -1,2 +1,6 @@
-h1 profile#edit
-p profile controller
+= form_for [@user, @profile], html: { class: "ui form" } do |f|
+  .field
+    = f.label :name, "Name"
+    = f.text_field :name, placeholder: "Your name"
+
+  = f.submit "プロフィールを更新", class: "ui button"

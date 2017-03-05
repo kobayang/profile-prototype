@@ -1,2 +1,9 @@
-h1 profile#show
-p profile controller
+- if @has_user_profile
+
+  h1.ui.dividing.header
+    = @user.profile.name
+
+- else
+
+  h1.ui.dividing.header
+    | ユーザープロフィールが存在しません。
