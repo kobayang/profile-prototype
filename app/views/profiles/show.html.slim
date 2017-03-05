@@ -11,10 +11,13 @@
     - @user.profile.skills.each do |skill|
       p
         = skill.name
+    - if @user != current_user
+      = link_to "スキルを推薦する",  new_user_profile_skill_path(@user, @profile), class: "ui green basic button"
   - if @user == current_user
     .ui.attached.header Edit
     .ui.attached.segment
       = link_to "Profileを編集する", edit_user_profile_path(@user), class: "ui button"
+
 
 - else
 

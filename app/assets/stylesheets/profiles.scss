@@ -6,4 +6,15 @@
   .ui.attached.header {
     background-color: #e8e8e8;
   }
+
+  .ui.form.group {
+    .ui.vertical.segment {
+      margin-top: 1em;
+      margin-bottom: 2em;
+    }
+
+    input {
+      margin-bottom: 0.5em;
+    }
+  }
 }

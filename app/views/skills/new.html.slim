@@ -1,0 +1,8 @@
+h3.dividing.header
+ = "#{@user.profile.name} さんにスキルを追加する"
+
+= form_for [@user, @profile, @skill], html: { class: "ui form" } do |f|
+  .field
+    = f.text_field :name, placeholder: "Your name"
+
+  = f.submit "スキルを追加", class: "ui primary button"

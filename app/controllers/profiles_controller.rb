@@ -10,10 +10,10 @@ class ProfilesController < ApplicationController
   def edit
     @user = current_user
     @profile = @user.profile
+    @skill = Skill.new
     if @profile.nil?
       @profile = @user.profile = Profile.new
     end
-    @profile.skills.build
   end
 
   def update

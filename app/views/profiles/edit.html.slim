@@ -1,12 +1,19 @@
-= form_for [@user, @profile], html: { class: "ui form" } do |f|
-  .field
-    = f.label :name, "Name"
-    = f.text_field :name, placeholder: "Your name"
+.ui.form.group
+  = form_for [@user, @profile], html: { class: "ui form" } do |f|
+    .field
+      = f.label :name, "名前"
+      = f.text_field :name, placeholder: "Your name"
+    = f.submit "名前を更新", class: "ui primary button"
 
-  .field
-    label Skills
-    = f.fields_for :skills do |sf|
-      = sf.text_field :name, placeholder: "Your skill"
+  .ui.vertical.segment
 
-  = f.submit "Profileを更新", class: "ui primary button"
-  = link_to "確認する", user_profile_path(@user), class: "ui button"
+  = form_for [@user, @profile, @skill], html: { class: "ui form" } do |f|
+    .field
+      label スキル・特徴
+    - @user.profile.skills.each do |skill|
+      .diable.field
+        input placeholder="#{skill.name}"
+    .field
+      = f.label :name, "新しくスキルを追加"
+      = f.text_field :name, placeholder: "Your skill"
+    = f.submit "スキルを追加", class: "ui primary button"
