@@ -8,9 +8,11 @@
     | ここに自己紹介を書く予定です。
   .ui.attached.header Skills
   .ui.attached.segment
-    - @user.profile.skills.each do |skill|
-      p
-        = skill.name
+    .ui.two.column.devided.grid
+      .ui.container
+        - @user.profile.skills.each do |skill|
+          .ui.basic.skill.button
+            = "#{skill.name}"
     - if @user != current_user
       = link_to "スキルを推薦する",  new_user_profile_skill_path(@user, @profile), class: "ui green basic button"
   - if @user == current_user

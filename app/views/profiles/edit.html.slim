@@ -1,3 +1,5 @@
+h3.ui.dividing.header プロフィールを編集する
+
 .ui.form.group
   = form_for [@user, @profile], html: { class: "ui form" } do |f|
     .field
@@ -11,9 +13,12 @@
     .field
       label スキル・特徴
     - @user.profile.skills.each do |skill|
-      .diable.field
+      .disable.field
         input placeholder="#{skill.name}"
     .field
       = f.label :name, "新しくスキルを追加"
       = f.text_field :name, placeholder: "Your skill"
     = f.submit "スキルを追加", class: "ui primary button"
+
+h3.ui.dividing.header プロフィールを確認する
+= link_to "確認する", user_profile_path(@user), class: "ui button"
