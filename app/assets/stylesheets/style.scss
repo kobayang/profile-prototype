@@ -1,3 +1,63 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.pusher {
+  .main.section {
+    min-height: 700px;
+
+    .main.container {
+      margin-top: 2em;
+    }
+  }
+
+  .nav {
+    margin-top: 1em;
+
+    .logo.item img {
+      margin-right: 1em;
+    }
+    .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+
+    .ui.span {
+      margin-right: 0.5em;
+    }
+  }
+
+  .masthead.segment {
+    h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+
+    h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .entry.button {
+      margin-top: 2em;
+    }
+  }
+
+  .footer.segment {
+    padding: 5em 0em;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .main.section {
+      min-height: 350px;
+    }
+
+    .masthead.segment {
+      h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+     	h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+  }
+}
