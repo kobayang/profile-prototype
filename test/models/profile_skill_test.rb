@@ -2,11 +2,12 @@
 #
 # Table name: profile_skills
 #
-#  id         :integer          not null, primary key
-#  profile_id :integer
-#  skill_id   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                :integer          not null, primary key
+#  profile_id        :integer
+#  skill_id          :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  evaluations_count :integer          default("0")
 #
 
 require 'test_helper'

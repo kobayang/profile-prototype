@@ -7,5 +7,8 @@ Rails.application.routes.draw do
       resources :skills, only: [:new, :create]
     end
   end
+
+  post 'users/:user_id/profile_skill/:profile_skill_id/evaluators/', to: 'evaluators#create', as: 'evaluators'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

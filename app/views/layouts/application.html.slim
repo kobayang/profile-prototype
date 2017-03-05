@@ -29,15 +29,15 @@ html
               = link_to "Log in", new_user_session_path, class: "a ui basic button"
               = link_to "Sign up", new_user_registration_path, class: "a ui basic button"
 
-      - if Rails.env.development?
-        .ui.container
-          .ui.debug.segment
-            = debug(params)
-
       .main.section
         .ui.main.container
           = yield
 
+      - if Rails.env.development?
+        .ui.container
+          .ui.debug.segment
+            = debug(params)
+            
       .ui.footer.center.aligned.inverted.vertical.segment
         .ui.text.container
           h4.ui.inverted.header Footerは飾り。
