@@ -12,8 +12,7 @@
       .ui.container
         - @skills.zip(@skill_relations).each do |skill, relation|
           .ui.labeled.button
-            .ui.basic.skill.button
-              = skill.name
+            = link_to skill.name, evaluators_path(current_user, relation), method: :post, class: "ui basic skill button"
             .ui.basic.left.pointing.label
               = relation.evaluators.size
     - if @user != current_user

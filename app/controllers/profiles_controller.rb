@@ -5,6 +5,9 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:user_id])
     @profile = @user.profile
     @has_user_profile = @profile.present?
+
+    @skills = @profile.skills
+    @skill_relations = @profile.profile_skills
   end
 
   def edit
