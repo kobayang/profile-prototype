@@ -10,7 +10,11 @@
   .ui.attached.segment
     - @user.profile.skills.each do |skill|
       p
-      = skill.name
+        = skill.name
+  - if @user == current_user
+    .ui.attached.header Edit
+    .ui.attached.segment
+      = link_to "Profileを編集する", edit_user_profile_path(@user), class: "ui button"
 
 - else
 

@@ -44,9 +44,9 @@ class ProfilesController < ApplicationController
 
     def check_and_redirect exec
       if exec
-        redirect_to user_profile_path(@user), notice: 'save user profile success'
+        redirect_to edit_user_profile_path(@user), notice: 'save user profile success'
       else
-        redirect_to user_profile_path(@user), alert: 'save user profile failed'
+        redirect_to edit_user_profile_path(@user), alert: 'save user profile failed'
       end
     end
 

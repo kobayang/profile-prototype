@@ -8,4 +8,5 @@
     = f.fields_for :skills do |sf|
       = sf.text_field :name, placeholder: "Your skill"
 
-  = f.submit "プロフィールを更新", class: "ui button"
+  = f.submit "Profileを更新", class: "ui primary button"
+  = link_to "確認する", user_profile_path(@user), class: "ui button"

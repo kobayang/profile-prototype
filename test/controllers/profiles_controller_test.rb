@@ -37,7 +37,7 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
         name: "test_user"
       }
     }
-    assert_redirected_to user_profile_path(user)
+    assert_redirected_to edit_user_profile_path(user)
     assert_equal "test_user", user.profile.name
   end
 
@@ -52,7 +52,7 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
         name: "test_user"
       }
     }
-    assert_redirected_to user_profile_path(user)
+    assert_redirected_to edit_user_profile_path(user)
     assert_equal "test_user", user.profile.name
   end
 end

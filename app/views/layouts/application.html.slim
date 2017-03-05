@@ -19,7 +19,7 @@ html
     .pusher
       .ui.nav.container
         .ui.large.secondary.pointing.menu
-          a.active.item Home
+          = link_to "Home", root_path, class: "a active item"
           .right.item
             - if user_signed_in?
               .a.ui.span
