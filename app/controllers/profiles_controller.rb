@@ -22,14 +22,6 @@ class ProfilesController < ApplicationController
     else
       check_and_redirect current_user.profile.update(profile_params)
     end
-
-    def check_and_redirect exec
-      if exec
-        redirect_to user_profile_path(@user), notice: 'save user profile success'
-      else
-        redirect_to user_profile_path(@user), alert: 'save user profile failed'
-      end
-    end
   end
 
   private
@@ -41,6 +33,14 @@ class ProfilesController < ApplicationController
     def correct_user
       @user = User.find(params[:user_id])
       redirect_to root_path, alert: 'not correct user!' unless @user == current_user
+    end
+
+    def check_and_redirect exec
+      if exec
+        redirect_to user_profile_path(@user), notice: 'save user profile success'
+      else
+        redirect_to user_profile_path(@user), alert: 'save user profile failed'
+      end
     end
 
 end
