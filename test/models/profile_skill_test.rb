@@ -36,13 +36,12 @@ class ProfileSkillTest < ActiveSupport::TestCase
     skill = skills(:rails)
     other = users(:test_user)
 
-    profile.skills << skill
-    my_skill = profile.profile_skills.first
+    my_skill = ProfileSkill.create(profile: profile, skill: skill)
+    Evaluation.create(evaluator: other, evaluated: my_skill)
 
-    my_skill.evaluators << other
     my_skill.destroy
 
-    assert_nil Evaluation.find_by(evaluated_id: my_skill.id)
+    assert_nil Evaluation.find_by(evaluated: my_skill)
   end
 
 end
