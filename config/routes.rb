@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :profile, only: [:show, :edit, :update] do
       resources :skills, only: [:new, :create]
     end
+    resources :profile_skills, only: [:destroy]
   end
 
   post 'users/:user_id/profile_skill/:profile_skill_id/evaluators/', to: 'evaluators#create', as: 'evaluators'
