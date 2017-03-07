@@ -16,6 +16,8 @@ class ProfilesController < ApplicationController
     if @profile.nil?
       @profile = @user.profile = Profile.new
     end
+
+    @skill_relations = ProfileSkill.where(profile: @profile).eager_load(:skill)
   end
 
   def update
