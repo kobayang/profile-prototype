@@ -8,10 +8,10 @@ class EvaluatorsController < ApplicationController
     begin
       skill_relation.evaluators << user
       redirect_back fallback_location: root_path
-    rescue ActiveRecord::RecordInvalid
-      redirect_back fallback_location: root_path, alert: "save evaluation failed"
-    rescue ActiveRecord::RecordNotUnique
-      redirect_back fallback_location: root_path, alert: "already save evaluator"
+    rescue ActiveRecord::RecordInvalid => e
+      redirect_back fallback_location: root_path, alert: "save evaluation failed: #{e}"
+    rescue ActiveRecord::RecordNotUnique => e
+      redirect_back fallback_location: root_path, alert: "already save evaluator: #{e}"
     end
   end
 
