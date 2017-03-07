@@ -19,11 +19,11 @@ html
     .pusher
       .ui.nav.container
         .ui.large.secondary.pointing.menu
-          = link_to "Home", root_path, class: "a active item"
+          = link_to "Home", root_path, class: "a item"
           .right.item
             - if user_signed_in?
               .a.ui.span
-                = current_user.email
+              = link_to current_user.email, user_profile_path(current_user)
               = link_to "Sign out", destroy_user_session_path, method: :delete, class: "a ui basic button"
             - else
               = link_to "Log in", new_user_session_path, class: "a ui basic button"
@@ -37,7 +37,7 @@ html
         .ui.container
           .ui.debug.segment
             = debug(params)
-            
+
       .ui.footer.center.aligned.inverted.vertical.segment
         .ui.text.container
           h4.ui.inverted.header Footerは飾り。
