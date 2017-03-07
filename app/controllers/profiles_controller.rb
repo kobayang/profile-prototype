@@ -39,11 +39,6 @@ class ProfilesController < ApplicationController
       )
     end
 
-    def correct_user
-      @user = User.find(params[:user_id])
-      redirect_to root_path, alert: 'not correct user!' unless @user == current_user
-    end
-
     def check_and_redirect exec
       if exec
         redirect_to edit_user_profile_path(@user), notice: 'save user profile success'
