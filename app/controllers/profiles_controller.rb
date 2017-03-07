@@ -16,6 +16,8 @@ class ProfilesController < ApplicationController
     if @profile.nil?
       @profile = @user.profile = Profile.new
     end
+
+    @skill_relations = ProfileSkill.where(profile: @profile).eager_load(:skill)
   end
 
   def update
@@ -37,11 +39,6 @@ class ProfilesController < ApplicationController
           :name
         ]
       )
-    end
-
-    def correct_user
-      @user = User.find(params[:user_id])
-      redirect_to root_path, alert: 'not correct user!' unless @user == current_user
     end
 
     def check_and_redirect exec

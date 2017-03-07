@@ -9,12 +9,16 @@ h3.ui.dividing.header プロフィールを編集する
 
   .ui.vertical.segment
 
-  = form_for [@user, @profile, @skill], html: { class: "ui form" } do |f|
+  .field
+    label スキル・特徴
+  - @skill_relations.each do |skill_relation|
     .field
-      label スキル・特徴
-    - @user.profile.skills.each do |skill|
-      .disable.field
-        input placeholder="#{skill.name}"
+      .ui.right.labeled.input
+        input placeholder="#{skill_relation.skill.name}"
+        .ui.basic.label
+          = link_to user_profile_skill_path(@user, skill_relation), :method => :delete do
+            i.trash.outline.icon
+  = form_for [@user, @profile, @skill],html: { class: "ui form" } do |f|
     .field
       = f.label :name, "新しくスキルを追加"
       = f.text_field :name, placeholder: "Your skill"
